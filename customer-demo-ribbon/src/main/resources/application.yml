@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: consumer-demo
+
+
+##改造配置
+eureka:
+  client:
+    enabled: false
+
+
+##1:定义一个serverlist给我们使用负载均衡
+##格式{servcid}:ribbon:listOfServers
+hello-server:
+  ribbon:
+    listOfServers: localhost:8001,localhost:8002
+
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud: debug
+    com:
+      netflix: debug
+
